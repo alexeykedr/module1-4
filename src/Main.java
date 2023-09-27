@@ -1,5 +1,14 @@
+import java.util.concurrent.CompletableFuture;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        Foo foo = new Foo();
+
+        CompletableFuture.runAsync(() -> foo.third(new Thread()));
+        CompletableFuture.runAsync(() -> foo.second(new Thread()));
+        CompletableFuture.runAsync(() -> foo.first(new Thread()));
+
+
     }
 }
